@@ -87,7 +87,7 @@ public class UserControllerTest extends BaseToDoListTest{
 	}
 	
 	@Ignore
-	@Test
+	//@Test
 	public void createUserTest() throws Exception
 	{
 		MockHttpServletRequestBuilder builder = MockMvcRequestBuilders
