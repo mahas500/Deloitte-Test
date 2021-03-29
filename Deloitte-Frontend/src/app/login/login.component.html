@@ -1,0 +1,25 @@
+<h2>Login to Check your ToDoList List</h2>
+<form #loginForm="ngForm" autocomplete="off" (ngSubmit)="loginUser(loginForm)">
+
+
+  <div class="container">
+
+    <label for="Username"><b>Username</b></label>
+    <input type="username" placeholder="Enter Username" name="username" required [(ngModel)]="model.username" #username="ngModel">
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="model.password"
+      #password="ngModel">
+
+   <div class="txt-align-center ">
+    <button type="submit" class="login-button">Login</button>
+   </div>
+
+      <div class="flex-container">
+
+      <button (click)="navigateToRegister()">Register</button>
+      <button (click)="navigateToForgotPassword()">Forgot Password</button>
+    </div>
+
+  </div>
+</form>

@@ -1,0 +1,60 @@
+
+<div class="header">
+    <div><h3>ToDo App</h3></div>
+    <div>
+      <span style="font-weight: bold;">Welcome {{firstname +" "+ lastname}}</span>
+    </div>
+    <div>
+
+      <button class="logout" (click)="logout()" >LOGOUT</button>
+      <button class="logout" (click)="deleteAccount()" style="margin-left: 5px;">DELETE ACCOUNT</button>
+    </div>
+  </div>
+
+
+  <div>
+
+    <form #createForm="ngForm" autocomplete="off" (ngSubmit)="createTask(createForm)" *ngIf="showform">
+
+      <div class="container">
+        <h3>{{formLabel}} To Do Task</h3>
+        <label for="taskName"><b>Task Name</b></label>
+        <input type="text" placeholder="Enter the Task Name" name="taskName" required [(ngModel)]="model.taskName" #taskName="ngModel">
+
+        <label for="details"><b>Details</b></label>
+        <textarea type="details" placeholder="Enter Details" name="details" required
+          [(ngModel)]="model.details" #details="ngModel">
+        </textarea>
+
+        <div class="flexbox">
+
+          <label for="isComplete"><b>Complete</b></label>
+          <input name="isComplete" ng-control="options" type="radio" [value]="true" [(ngModel)]="model.complete"><br />
+          <label for="isComplete"><b>Not Complete</b></label>
+          <input name="isComplete" ng-control="options" type="radio" [value]="false" [(ngModel)]="model.complete"><br />
+        </div>
+        <button type="submit" class="update-create-button">{{formLabel}}</button>
+        <button class="delete-button" (click)="closeForm(createForm)">Cancel</button>
+
+      </div>
+
+    </form>
+  </div>
+  <div class="list-container">
+    <div *ngFor="let task of todoTasks">
+      <div class="list-task" (click)="showHideDescription(task.id)">
+        <p class="font-weight-bold">{{task.taskName}}</p>
+        <span class="date-style">Last Update : {{task.updatedOn | date:'short'}}</span>
+      </div>
+      <div class="list-data" id="{{task.id}}">
+        <p>{{task.details}}</p>
+        <button (click)="editTask(task)" class="edit-button">Edit</button>
+        <button class="delete-button" (click)="deleteTask(task.id)">Delete</button>
+      </div>
+
+    </div>
+  </div>
+  <p href="#" class="float" (click)="showCreateForm()">
+    <img src="/assets/plus-icon-13062.png" alt="" style="width: 40px;padding-top: 10px;">
+  </p>
+

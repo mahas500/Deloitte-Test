@@ -1,0 +1,29 @@
+<h2>Register</h2>
+<form #registerForm="ngForm" autocomplete="off" (ngSubmit)="createUser(registerForm)">
+
+
+  <div class="container">
+    <label for="name"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required [(ngModel)]="model.username" #username="ngModel">
+
+    <label for="name"><b>Firstname</b></label>
+    <input type="text" placeholder="Enter Firstname" name="firstname" required [(ngModel)]="model.firstname" #firstname="ngModel">
+
+    <label for="name"><b>Lastname</b></label>
+    <input type="text" placeholder="Enter Lastname" name="lastname" required [(ngModel)]="model.lastname" #lastname="ngModel">
+
+    <label for="Email"><b>Email</b></label>
+    <input type="email" placeholder="Enter Email" name="emailAddress" required [(ngModel)]="model.emailAddress" #email="ngModel">
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="model.password"
+      #password="ngModel">
+
+      <div class="flex-container">
+    <button type="submit">Register</button>
+    <button (click)="navigateToLogin()">Login</button>
+
+      </div>
+  </div>
+
+</form>
