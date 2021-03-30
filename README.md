@@ -24,3 +24,8 @@ http://localhost:8080/Deloitte/createTask (user can create a new task after logi
 http://localhost:8080/Deloitte/getUserAllTasks (user sees all tasks on dashboard after login)
 http://localhost:8080/Deloitte/editTask (user can change details of an existing task)
 http://localhost:8080/Deloitte/deleteTask (user can delete a task)
+
+Deploy the war file in any application server.
+
+For frontned please install node_modules using below command
+npm install
